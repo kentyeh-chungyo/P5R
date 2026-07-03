@@ -1,0 +1,833 @@
+/* ==========================================================================
+   Persona 5 Royal Mobile UI Style Guide & System
+   ========================================================================== */
+
+:root {
+  /* Colors */
+  --p5-black: #0c0c0c;
+  --p5-dark-grey: #171717;
+  --p5-light-grey: #2a2a2a;
+  --p5-white: #fcfcfc;
+  --p5-red: #d30f16;
+  --p5-red-hover: #b00a10;
+  --p5-gold: #ffcc00;
+  --p5-gold-glow: rgba(255, 204, 0, 0.4);
+  --p5-blue: #0088ff;
+  
+  /* Fonts */
+  --font-p5-title: 'Bebas Neue', 'Impact', 'Noto Sans TC', sans-serif;
+  --font-p5-body: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
+  
+  /* Layout */
+  --app-max-width: 480px;
+  --header-height: 60px;
+  --drawer-width: 300px;
+  
+  /* Animations */
+  --transition-fast: 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --transition-normal: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --transition-bounce: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Reset & Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-p5-body);
+  background-color: #1a1a1a;
+  color: var(--p5-white);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-x: hidden;
+}
+
+/* App Viewport Container (Centering Mobile layout on Desktop) */
+#app-container {
+  width: 100%;
+  max-width: var(--app-max-width);
+  min-height: 100vh;
+  background-color: var(--p5-black);
+  border-left: 2px solid #333;
+  border-right: 2px solid #333;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--p5-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--p5-red);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--p5-red-hover);
+}
+
+/* ==========================================================================
+   Header component
+   ========================================================================== */
+.app-header {
+  height: var(--header-height);
+  background-color: var(--p5-black);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 3px solid var(--p5-red);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Hamburger Button */
+.header-icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 28px;
+  height: 22px;
+  padding: 0;
+  z-index: 102;
+}
+
+.header-icon-btn .bar {
+  width: 100%;
+  height: 3px;
+  background-color: var(--p5-white);
+  transition: var(--transition-normal);
+  transform-origin: left center;
+}
+
+.header-icon-btn:hover .bar {
+  background-color: var(--p5-red);
+}
+
+/* Header Title (Skewed P5 style) */
+.header-title {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 20px;
+  transform: skewX(-15deg);
+}
+
+.header-title .skew-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--p5-red);
+  z-index: 1;
+  box-shadow: 2px 2px 0 var(--p5-white);
+}
+
+.header-title .title-text {
+  font-family: var(--font-p5-title);
+  font-size: 1.3rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: var(--p5-white);
+  position: relative;
+  z-index: 2;
+  text-shadow: 1px 1px 0 #000;
+}
+
+/* Star Button */
+.star-btn {
+  font-size: 1.5rem;
+  color: var(--p5-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  width: auto;
+  height: auto;
+  transition: var(--transition-bounce);
+}
+
+.star-btn:hover, .star-btn.active {
+  color: var(--p5-gold);
+  transform: scale(1.2) rotate(15deg);
+  text-shadow: 0 0 8px var(--p5-gold);
+}
+
+/* ==========================================================================
+   Navigation Drawer (Collapsible Sidebar)
+   ========================================================================== */
+.drawer-overlay {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: var(--app-max-width);
+  height: 100%;
+  z-index: 200;
+  visibility: hidden;
+  overflow: hidden;
+  transition: visibility var(--transition-normal);
+}
+
+.drawer-overlay.open {
+  visibility: visible;
+}
+
+.drawer-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.drawer-overlay.open .drawer-backdrop {
+  opacity: 1;
+}
+
+.drawer-sheet {
+  position: absolute;
+  top: 0;
+  left: -var(--drawer-width);
+  width: var(--drawer-width);
+  height: 100%;
+  background-color: var(--p5-black);
+  border-right: 5px solid var(--p5-red);
+  box-shadow: 10px 0 30px rgba(0,0,0,0.9);
+  display: flex;
+  flex-direction: column;
+  transition: left var(--transition-normal);
+  z-index: 201;
+}
+
+.drawer-overlay.open .drawer-sheet {
+  left: 0;
+}
+
+/* Drawer Header */
+.drawer-header {
+  padding: 30px 20px 20px 20px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--p5-light-grey);
+  background: linear-gradient(135deg, #171717 0%, #000 100%);
+}
+
+.logo-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-sub {
+  font-family: var(--font-p5-title);
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: var(--p5-red);
+  font-weight: 700;
+}
+
+.logo-main {
+  font-family: var(--font-p5-title);
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  color: var(--p5-white);
+  transform: skewX(-10deg) rotate(-2deg);
+  display: inline-block;
+  margin-top: 4px;
+  text-shadow: 2px 2px 0 var(--p5-red);
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 2.2rem;
+  color: var(--p5-white);
+  cursor: pointer;
+  line-height: 0.8;
+  transition: var(--transition-fast);
+}
+
+.close-btn:hover {
+  color: var(--p5-red);
+  transform: rotate(90deg);
+}
+
+/* Drawer Menu List */
+.drawer-menu-list {
+  list-style: none;
+  padding: 20px 0;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.menu-item {
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.menu-item a {
+  display: flex;
+  align-items: center;
+  padding: 14px 25px;
+  color: var(--p5-white);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  position: relative;
+  z-index: 1;
+  transition: var(--transition-fast);
+  overflow: hidden;
+}
+
+/* Slanted Background Hover Effect */
+.skew-hover-bg {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: var(--p5-red);
+  transform: skewX(-15deg);
+  z-index: -1;
+  transition: left var(--transition-normal);
+}
+
+.menu-item:not(.disabled) a:hover .skew-hover-bg {
+  left: -10px;
+}
+
+.menu-item:not(.disabled) a:hover {
+  color: var(--p5-white);
+  padding-left: 35px;
+}
+
+.menu-item.active a {
+  color: var(--p5-white);
+  background-color: var(--p5-red);
+}
+
+.menu-item.active .item-icon {
+  color: var(--p5-gold);
+}
+
+.menu-item.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.menu-item.disabled a {
+  pointer-events: none;
+}
+
+.item-icon {
+  font-size: 1.2rem;
+  margin-right: 12px;
+  color: var(--p5-red);
+  transition: var(--transition-bounce);
+}
+
+.menu-item:hover .item-icon {
+  transform: scale(1.2) rotate(15deg);
+}
+
+/* Drawer Footer */
+.drawer-footer {
+  padding: 20px;
+  font-size: 0.7rem;
+  color: #555;
+  text-align: center;
+  border-top: 1px solid var(--p5-light-grey);
+  background-color: #080808;
+}
+
+/* ==========================================================================
+   Main Content Layout
+   ========================================================================== */
+.app-main-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding-bottom: 80px; /* Spacer for floating action button */
+}
+
+/* Month Tabs Navigation */
+.tabs-section {
+  background-color: var(--p5-black);
+  padding: 10px 0;
+  border-bottom: 2px solid var(--p5-light-grey);
+  position: sticky;
+  top: var(--header-height);
+  z-index: 90;
+}
+
+.months-tabs-wrapper {
+  overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+  display: flex;
+  padding: 0 10px;
+}
+
+.months-tabs-wrapper::-webkit-scrollbar {
+  display: none; /* Safari & Chrome */
+}
+
+.months-tabs {
+  display: flex;
+  gap: 8px;
+  padding: 5px 0;
+}
+
+.month-tab-btn {
+  background-color: var(--p5-light-grey);
+  color: var(--p5-white);
+  border: none;
+  font-family: var(--font-p5-title);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 8px 18px;
+  cursor: pointer;
+  transform: skewX(-15deg);
+  transition: var(--transition-fast);
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.5);
+  white-space: nowrap;
+}
+
+.month-tab-btn.active {
+  background-color: var(--p5-red);
+  color: var(--p5-white);
+  box-shadow: 2px 2px 0 var(--p5-white), 4px 4px 0 rgba(211, 15, 22, 0.4);
+}
+
+.month-tab-btn:hover:not(.active) {
+  background-color: #3d3d3d;
+}
+
+/* ==========================================================================
+   Overview Card (Monthly Notes)
+   ========================================================================== */
+.overview-section {
+  padding: 15px;
+}
+
+.monthly-targets-card {
+  background-color: var(--p5-dark-grey);
+  border: 2px dashed var(--p5-red);
+  border-radius: 4px;
+  padding: 16px;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.card-tag {
+  position: absolute;
+  top: -12px;
+  left: 15px;
+  background-color: var(--p5-red);
+  color: var(--p5-white);
+  font-family: var(--font-p5-title);
+  font-size: 0.8rem;
+  font-weight: 900;
+  padding: 2px 10px;
+  transform: skewX(-10deg);
+  letter-spacing: 0.5px;
+  box-shadow: 1px 1px 0 var(--p5-white);
+}
+
+.targets-list {
+  list-style: none;
+  margin-top: 5px;
+}
+
+.targets-list li {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 8px;
+  padding-left: 18px;
+  position: relative;
+  color: #dedede;
+}
+
+.targets-list li:last-child {
+  margin-bottom: 0;
+}
+
+.targets-list li::before {
+  content: "★";
+  position: absolute;
+  left: 0;
+  top: 1px;
+  color: var(--p5-red);
+  font-size: 0.8rem;
+}
+
+/* ==========================================================================
+   Walkthrough Timeline & Day Cards
+   ========================================================================== */
+.schedule-section {
+  padding: 10px 15px;
+}
+
+/* Section Title Banner */
+.section-title-banner {
+  position: relative;
+  display: inline-block;
+  padding: 6px 20px;
+  margin-bottom: 20px;
+  transform: skewX(-12deg);
+}
+
+.banner-skew {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--p5-white);
+  z-index: 1;
+}
+
+.section-title-banner h2 {
+  font-family: var(--font-p5-title);
+  font-size: 1.4rem;
+  color: var(--p5-black);
+  font-weight: 900;
+  position: relative;
+  z-index: 2;
+  letter-spacing: 1px;
+}
+
+/* Daily Cards Timeline */
+.cards-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  position: relative;
+  padding-left: 10px;
+  border-left: 3px solid var(--p5-light-grey);
+}
+
+/* Day Card */
+.day-card {
+  background-color: var(--p5-dark-grey);
+  border: 1px solid #222;
+  border-radius: 4px;
+  padding: 15px;
+  position: relative;
+  transition: var(--transition-bounce), border-color var(--transition-normal);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.day-card::before {
+  content: "";
+  position: absolute;
+  left: -17px;
+  top: 20px;
+  width: 11px;
+  height: 11px;
+  background-color: var(--p5-light-grey);
+  border: 2px solid var(--p5-black);
+  transform: rotate(45deg);
+  z-index: 5;
+  transition: var(--transition-normal);
+}
+
+/* Active Day Card (Progress Highlighter) */
+.day-card.active-progress {
+  border: 3px solid var(--p5-gold);
+  box-shadow: 0 0 15px var(--p5-gold-glow);
+  transform: scale(1.02);
+}
+
+.day-card.active-progress::before {
+  background-color: var(--p5-gold);
+  box-shadow: 0 0 8px var(--p5-gold);
+}
+
+/* Badge for current indicator */
+.progress-now-badge {
+  position: absolute;
+  top: -12px;
+  right: 15px;
+  background-color: var(--p5-gold);
+  color: var(--p5-black);
+  font-family: var(--font-p5-title);
+  font-size: 0.75rem;
+  font-weight: 900;
+  padding: 2px 8px;
+  transform: skewX(-10deg);
+  letter-spacing: 0.5px;
+  box-shadow: 1px 1px 0 var(--p5-white);
+  z-index: 10;
+  animation: pulse-gold 2s infinite alternate;
+}
+
+@keyframes pulse-gold {
+  0% {
+    box-shadow: 1px 1px 0 var(--p5-white), 0 0 0 rgba(255, 204, 0, 0);
+  }
+  100% {
+    box-shadow: 1px 1px 0 var(--p5-white), 0 0 10px var(--p5-gold);
+  }
+}
+
+/* Card Header (Date badge) */
+.card-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.date-badge {
+  position: relative;
+  display: flex;
+  align-items: center;
+  transform: skewX(-15deg);
+}
+
+.date-badge .skew-fill {
+  background-color: var(--p5-red);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  box-shadow: 1px 1px 0 var(--p5-white);
+}
+
+.date-badge .date-text {
+  font-family: var(--font-p5-title);
+  font-size: 1.3rem;
+  font-weight: 900;
+  padding: 3px 12px;
+  color: var(--p5-white);
+  position: relative;
+  z-index: 2;
+  text-shadow: 1px 1px 0 #000;
+}
+
+.day-of-week {
+  font-size: 0.95rem;
+  font-weight: 900;
+  padding: 2px 8px;
+  border-radius: 2px;
+  margin-left: 8px;
+  transform: skewX(-15deg);
+  display: inline-block;
+  text-shadow: 1px 1px 0 #000;
+}
+
+/* Saturday Blue, Sunday Red, Weekday White */
+.day-of-week.sat {
+  background-color: var(--p5-blue);
+  color: var(--p5-white);
+}
+
+.day-of-week.sun {
+  background-color: var(--p5-red);
+  color: var(--p5-white);
+}
+
+.day-of-week.weekday {
+  background-color: var(--p5-light-grey);
+  color: var(--p5-white);
+}
+
+/* Activity Sections styling */
+.activities-box {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.activity-row {
+  background-color: rgba(0,0,0,0.25);
+  border-radius: 4px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  border-left: 3px solid var(--p5-light-grey);
+}
+
+.activity-row.daytime-row {
+  border-left-color: var(--p5-gold);
+}
+
+.activity-row.nighttime-row {
+  border-left-color: #9c27b0; /* purple accent for night */
+}
+
+.activity-time-lbl {
+  font-family: var(--font-p5-title);
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.daytime-row .activity-time-lbl {
+  color: var(--p5-gold);
+}
+
+.nighttime-row .activity-time-lbl {
+  color: #c51162;
+}
+
+.activity-list {
+  list-style: none;
+}
+
+.activity-list li {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #efefef;
+  margin-bottom: 5px;
+  position: relative;
+}
+
+.activity-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* Remarks block */
+.remarks-row {
+  background-color: rgba(211, 15, 22, 0.08);
+  border: 1px solid rgba(211, 15, 22, 0.2);
+  border-radius: 4px;
+  padding: 8px 10px;
+  margin-bottom: 15px;
+  font-size: 0.8rem;
+  color: #ffa4a2;
+  line-height: 1.4;
+}
+
+.remarks-row strong {
+  color: var(--p5-red);
+  margin-right: 4px;
+}
+
+/* Progress Setter Button */
+.progress-setter-btn {
+  width: 100%;
+  background-color: var(--p5-light-grey);
+  border: none;
+  color: var(--p5-white);
+  padding: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transform: skewX(-10deg);
+  transition: var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.4);
+}
+
+.progress-setter-btn:hover {
+  background-color: var(--p5-red);
+  box-shadow: 2px 2px 0 var(--p5-white);
+}
+
+.day-card.active-progress .progress-setter-btn {
+  background-color: var(--p5-gold);
+  color: var(--p5-black);
+  box-shadow: 2px 2px 0 var(--p5-white);
+}
+
+.day-card.active-progress .progress-setter-btn:hover {
+  background-color: #ffd633;
+}
+
+/* ==========================================================================
+   Floating Action Jump Button
+   ========================================================================== */
+.floating-btn {
+  position: fixed;
+  bottom: 25px;
+  right: calc(50% - (var(--app-max-width) / 2) + 20px);
+  background-color: var(--p5-red);
+  color: var(--p5-white);
+  border: 3px solid var(--p5-white);
+  border-radius: 0;
+  padding: 10px 18px;
+  font-family: var(--font-p5-title);
+  font-size: 1.1rem;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 5px 5px 0 var(--p5-black), 0 8px 15px rgba(0, 0, 0, 0.4);
+  transform: skewX(-15deg);
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transition-bounce);
+  opacity: 0;
+  pointer-events: none;
+  transform: skewX(-15deg) translateY(20px);
+}
+
+/* For larger desktops, make sure the FAB positions correctly relative to centered app container */
+@media (max-width: 480px) {
+  .floating-btn {
+    right: 20px;
+  }
+}
+
+.floating-btn.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: skewX(-15deg) translateY(0);
+}
+
+.floating-btn:hover {
+  background-color: var(--p5-white);
+  color: var(--p5-red);
+  border-color: var(--p5-red);
+  box-shadow: 5px 5px 0 var(--p5-red);
+}
+
+.floating-star {
+  animation: spin-star 3s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin-star {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

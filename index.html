@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>P5R 手機版攻略與進度追蹤</title>
+  <!-- Google Fonts for stylish Persona 5 Royal fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+TC:wght@400;700;900&family=Impact&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Main App Wrapper (Limited to Mobile Viewport width on Desktop for preview) -->
+  <div id="app-container">
+    
+    <!-- Top Header -->
+    <header class="app-header">
+      <button id="menu-btn" aria-label="開啟選單" class="header-icon-btn">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <div class="header-title">
+        <span class="skew-bg"></span>
+        <span class="title-text">P5R DAILY SCHEDULE</span>
+      </div>
+      <button id="scroll-to-progress-btn" aria-label="回到當前進度" class="header-icon-btn star-btn">
+        ★
+      </button>
+    </header>
+
+    <!-- Navigation Drawer (Collapsible Sidebar) -->
+    <div id="sidebar-drawer" class="drawer-overlay" aria-hidden="true">
+      <div class="drawer-backdrop"></div>
+      <nav class="drawer-sheet" tabindex="-1">
+        <div class="drawer-header">
+          <div class="logo-box">
+            <span class="logo-sub">PERSONA 5 ROYAL</span>
+            <span class="logo-main">TAKE YOUR TIME</span>
+          </div>
+          <button id="close-drawer-btn" aria-label="關閉選單" class="close-btn">&times;</button>
+        </div>
+        <ul class="drawer-menu-list">
+          <li class="menu-item active">
+            <a href="#" id="menu-main-walkthrough">
+              <span class="skew-hover-bg"></span>
+              <span class="item-icon">★</span>
+              <span class="item-text">主攻略流程</span>
+            </a>
+          </li>
+          <li class="menu-item disabled">
+            <a href="#">
+              <span class="skew-hover-bg"></span>
+              <span class="item-icon">♢</span>
+              <span class="item-text">面具合成模擬 (後續新增)</span>
+            </a>
+          </li>
+          <li class="menu-item disabled">
+            <a href="#">
+              <span class="skew-hover-bg"></span>
+              <span class="item-icon">♢</span>
+              <span class="item-text">社群 COOP 攻略 (後續新增)</span>
+            </a>
+          </li>
+          <li class="menu-item disabled">
+            <a href="#">
+              <span class="skew-hover-bg"></span>
+              <span class="item-icon">♢</span>
+              <span class="item-text">課堂問題解答 (後續新增)</span>
+            </a>
+          </li>
+        </ul>
+        <div class="drawer-footer">
+          <p>© ATLUS. © SEGA. All rights reserved.</p>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Main Content Area -->
+    <main class="app-main-content">
+      
+      <!-- Month Tab Navigation -->
+      <section class="tabs-section">
+        <div class="months-tabs-wrapper">
+          <div class="months-tabs" id="month-tabs">
+            <!-- Dynamically populated from JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Monthly Overview & Notes -->
+      <section class="overview-section">
+        <div class="monthly-targets-card">
+          <div class="card-tag">★ MONTHLY TARGETS</div>
+          <ul id="month-notes-list" class="targets-list">
+            <!-- Dynamically populated -->
+          </ul>
+        </div>
+      </section>
+
+      <!-- Daily Schedule Timeline -->
+      <section class="schedule-section">
+        <div class="section-title-banner">
+          <span class="banner-skew"></span>
+          <h2>DAILY WALKTHROUGH</h2>
+        </div>
+        <div id="schedule-container" class="cards-timeline">
+          <!-- Dynamically populated daily cards -->
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Floating Quick Jump Button (Visible when page is scrolled) -->
+    <button id="floating-jump-btn" class="floating-btn" aria-label="跳轉到當前進度">
+      <span class="floating-text">CURRENT PROGRESS</span>
+      <span class="floating-star">★</span>
+    </button>
+  </div>
+
+  <!-- Load walkthough database first, then app script -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
