@@ -955,7 +955,472 @@ const walkthroughData = {
   }
 };
 
+
+const palaceWalkthroughData = {
+  "okumura": {
+    "name": "贪婪的宇宙基地",
+    "deadlines": [
+      {
+        "label": "开放日期",
+        "date": "9月15日"
+      },
+      {
+        "label": "自由攻略",
+        "date": "9月19日"
+      },
+      {
+        "label": "确认秘宝路线期限",
+        "date": "10月8日"
+      },
+      {
+        "label": "预告信期限",
+        "date": "10月9日"
+      },
+      {
+        "label": "行动日期限",
+        "date": "10月10日"
+      },
+      {
+        "label": "最后期限",
+        "date": "10月11日（新闻发布会）"
+      }
+    ],
+    "enemies": {
+      "ordinary": [
+        {
+          "lv": "25",
+          "arcana": "女教皇",
+          "name": "光之山",
+          "alias": "光之山",
+          "personality": "",
+          "attributes": {
+            "物": "耐",
+            "枪": "弱"
+          },
+          "hp": "",
+          "sp": "",
+          "remarks": "",
+          "drop_items": "",
+          "negotiation_items": ""
+        },
+        {
+          "lv": "32",
+          "arcana": "顾问官",
+          "name": "【阴惨的五芒星】",
+          "alias": "单卡拉比",
+          "personality": "懦弱",
+          "attributes": {
+            "物": "弱",
+            "火": "反",
+            "核": "耐",
+            "咒": "耐"
+          },
+          "hp": "",
+          "sp": "",
+          "remarks": "物理软膏",
+          "drop_items": "水银",
+          "negotiation_items": "提特拉之锤、罗刹符咒"
+        },
+        {
+          "lv": "32",
+          "arcana": "恶魔",
+          "name": "【诱发毁灭的恶女】",
+          "alias": "莉莉姆",
+          "personality": "阴沉",
+          "attributes": {
+            "冰": "耐",
+            "风": "弱",
+            "祝": "弱",
+            "咒": "无"
+          },
+          "hp": "",
+          "sp": "",
+          "remarks": "洗脑大瓶子",
+          "drop_items": "加工皮革",
+          "negotiation_items": "恶女的老旧防具"
+        },
+        {
+          "lv": "33",
+          "arcana": "月亮",
+          "name": "【逼近的吸血蛾】",
+          "alias": "天蛾人",
+          "personality": "懦弱",
+          "attributes": {
+            "枪": "弱",
+            "电": "无",
+            "念": "耐"
+          },
+          "hp": "",
+          "sp": "",
+          "remarks": "速之龙涎香",
+          "drop_items": "铁矿砂",
+          "negotiation_items": "灵魂糖果、韦驮天符咒"
+        },
+        {
+          "lv": "34",
+          "arcana": "太阳",
+          "name": "【呼唤风暴的雷鸟】",
+          "alias": "雷鸟",
+          "personality": "开朗",
+          "attributes": {
+            "电": "吸",
+            "念": "弱",
+            "咒": "弱"
+          },
+          "hp": "",
+          "sp": "",
+          "remarks": "紫电勾玉",
+          "drop_items": "雷鸟的老旧防具",
+          "negotiation_items": "雷鸟的老旧防具"
+        },
+        {
+          "lv": "35",
+          "arcana": "隐士",
+          "name": "【从墓中醒来的祖神】",
+          "alias": "荒霸吐",
+          "personality": "阴沉",
+          "attributes": {
+            "物": "反",
+            "枪": "反",
+            "念": "弱",
+            "核": "弱",
+            "祝": "耐",
+            "咒": "耐"
+          },
+          "hp": "",
+          "sp": "",
+          "remarks": "魔之龙涎香",
+          "drop_items": "聚光透镜",
+          "negotiation_items": "魔石、返地玉"
+        },
+        {
+          "lv": "36",
+          "arcana": "星",
+          "name": "【没有愿望的星】",
+          "alias": "迦温",
+          "personality": "懦弱",
+          "attributes": {
+            "枪": "无",
+            "念": "无",
+            "核": "弱"
+          },
+          "hp": "",
+          "sp": "",
+          "remarks": "念动勾玉",
+          "drop_items": "软木橡树皮",
+          "negotiation_items": "摩伽罗战锤、"
+        },
+        {
+          "lv": "37",
+          "arcana": "塔",
+          "name": "【不净的魔神】",
+          "alias": "贝尔芬格",
+          "personality": "懦弱",
+          "attributes": {
+            "火": "弱",
+            "冰": "耐",
+            "电": "耐",
+            "核": "耐",
+            "咒": "反"
+          },
+          "hp": "",
+          "sp": "",
+          "remarks": "烈寒勾玉",
+          "drop_items": "生丝捆",
+          "negotiation_items": "激怒小瓶子、干冰"
+        },
+        {
+          "lv": "39",
+          "arcana": "太阳",
+          "name": "【暗穴的太阳】",
+          "alias": "米特拉斯",
+          "personality": "阴沉",
+          "attributes": {
+            "物": "耐",
+            "枪": "耐",
+            "火": "吸",
+            "念": "弱",
+            "核": "反"
+          },
+          "hp": "",
+          "sp": "",
+          "remarks": "魔法软膏",
+          "drop_items": "马口铁的金属扣",
+          "negotiation_items": "灵魂糖果、力之抹香"
+        },
+        {
+          "lv": "42",
+          "arcana": "隐士",
+          "name": "【吸取精气的邻居】",
+          "alias": "鸠盘荼",
+          "personality": "阴沉",
+          "attributes": {
+            "火": "无",
+            "念": "弱",
+            "咒": "耐"
+          },
+          "hp": "",
+          "sp": "",
+          "remarks": "运气龙涎香",
+          "drop_items": "红磷粉",
+          "negotiation_items": "魔石、金刚符咒"
+        },
+        {
+          "lv": "43",
+          "arcana": "月亮",
+          "name": "【反抗的黑象】",
+          "alias": "基力梅卡拉",
+          "personality": "性急",
+          "attributes": {
+            "物": "反",
+            "枪": "反",
+            "火": "耐",
+            "祝": "弱",
+            "咒": "无"
+          },
+          "hp": "",
+          "sp": "",
+          "remarks": "",
+          "drop_items": "黑象的老旧防具",
+          "negotiation_items": "黑象的老旧防具"
+        }
+      ],
+      "strong": [
+        {
+          "lv": "38",
+          "arcana": "",
+          "name": "春的未婚夫",
+          "alias": "",
+          "personality": "",
+          "attributes": {
+            "念": "弱"
+          },
+          "hp": "1379",
+          "sp": "650",
+          "remarks": "全异常无效",
+          "drop_items": "",
+          "negotiation_items": ""
+        },
+        {
+          "lv": "43",
+          "arcana": "",
+          "name": "社畜机器人・TYPE社员",
+          "alias": "",
+          "personality": "",
+          "attributes": {
+            "物": "耐",
+            "火": "弱",
+            "冰": "耐",
+            "电": "耐",
+            "风": "弱",
+            "念": "耐",
+            "核": "耐",
+            "祝": "耐",
+            "咒": "耐"
+          },
+          "hp": "250",
+          "sp": "80",
+          "remarks": "全异常无效",
+          "drop_items": "",
+          "negotiation_items": ""
+        },
+        {
+          "lv": "43",
+          "arcana": "",
+          "name": "社畜机器人・TYPE股长",
+          "alias": "",
+          "personality": "",
+          "attributes": {
+            "物": "耐",
+            "火": "耐",
+            "冰": "耐",
+            "电": "弱",
+            "风": "耐",
+            "念": "耐",
+            "核": "弱",
+            "祝": "耐",
+            "咒": "耐"
+          },
+          "hp": "350",
+          "sp": "80",
+          "remarks": "冰冻、触电、眩晕、混乱、忘却无效",
+          "drop_items": "",
+          "negotiation_items": ""
+        },
+        {
+          "lv": "43",
+          "arcana": "",
+          "name": "社畜机器人・TYPE课长",
+          "alias": "",
+          "personality": "",
+          "attributes": {
+            "物": "耐",
+            "火": "耐",
+            "冰": "耐",
+            "电": "耐",
+            "风": "弱",
+            "念": "耐",
+            "核": "耐",
+            "祝": "弱",
+            "咒": "耐"
+          },
+          "hp": "625",
+          "sp": "80",
+          "remarks": "冰冻、触电、眩晕、混乱、忘却无效",
+          "drop_items": "",
+          "negotiation_items": ""
+        },
+        {
+          "lv": "43",
+          "arcana": "",
+          "name": "社畜机器人・TYPE部长",
+          "alias": "",
+          "personality": "",
+          "attributes": {
+            "物": "耐",
+            "火": "耐",
+            "冰": "耐",
+            "电": "耐",
+            "风": "耐",
+            "念": "弱",
+            "核": "耐",
+            "祝": "耐",
+            "咒": "弱"
+          },
+          "hp": "550",
+          "sp": "80",
+          "remarks": "全异常无效",
+          "drop_items": "",
+          "negotiation_items": ""
+        },
+        {
+          "lv": "43",
+          "arcana": "",
+          "name": "社畜机器人・TYPE主任",
+          "alias": "",
+          "personality": "",
+          "attributes": {
+            "物": "耐",
+            "火": "耐",
+            "冰": "弱",
+            "电": "耐",
+            "风": "耐",
+            "念": "弱",
+            "核": "耐",
+            "祝": "耐",
+            "咒": "耐"
+          },
+          "hp": "300",
+          "sp": "80",
+          "remarks": "全异常无效",
+          "drop_items": "",
+          "negotiation_items": ""
+        },
+        {
+          "lv": "42",
+          "arcana": "正义",
+          "name": "异端的救世主",
+          "alias": "默基瑟德",
+          "personality": "",
+          "attributes": {
+            "物": "反",
+            "枪": "反",
+            "风": "弱",
+            "念": "耐",
+            "祝": "吸",
+            "咒": "无"
+          },
+          "hp": "2000",
+          "sp": "500",
+          "remarks": "祝福、咒怨即死、恐、绝望、洗脑无效",
+          "drop_items": "",
+          "negotiation_items": ""
+        }
+      ],
+      "boss": [
+        {
+          "lv": "43",
+          "arcana": "",
+          "name": "役员机器人·TYPE执行董事",
+          "alias": "",
+          "personality": "",
+          "attributes": {},
+          "hp": "3000",
+          "sp": "999",
+          "remarks": "火焰、祝福、咒怨即死、恐、眠、怒、绝望、洗脑无效",
+          "drop_items": "",
+          "negotiation_items": ""
+        },
+        {
+          "lv": "45",
+          "arcana": "",
+          "name": "认知存在『奥村春』",
+          "alias": "",
+          "personality": "",
+          "attributes": {},
+          "hp": "1500",
+          "sp": "143",
+          "remarks": "全异常无效",
+          "drop_items": "",
+          "negotiation_items": ""
+        },
+        {
+          "lv": "45",
+          "arcana": "",
+          "name": "奥村·玛门·邦和",
+          "alias": "",
+          "personality": "",
+          "attributes": {},
+          "hp": "1",
+          "sp": "100",
+          "remarks": "全异常无效",
+          "drop_items": "",
+          "negotiation_items": ""
+        }
+      ]
+    },
+    "willSeeds": [
+      {
+        "name": "红色欲石",
+        "image": "assets/palace/okumura/red_will_seed.jpg"
+      },
+      {
+        "name": "绿色欲石",
+        "image": "assets/palace/okumura/green_will_seed.jpg"
+      },
+      {
+        "name": "蓝色欲石",
+        "image": "assets/palace/okumura/blue_will_seed.jpg"
+      }
+    ],
+    "puzzle": {
+      "title": "运送流水线2层谜题",
+      "image": "assets/palace/okumura/puzzle_assembly.jpg"
+    }
+  },
+  "niijima": {
+    "name": "嫉妒的赌场",
+    "status": "pending"
+  },
+  "shido": {
+    "name": "傲慢的游轮",
+    "status": "pending"
+  },
+  "mementos": {
+    "name": "印象空间最深处",
+    "status": "pending"
+  },
+  "qliphoth": {
+    "name": "邪恶世界树",
+    "status": "pending"
+  },
+  "maruki": {
+    "name": "？？？：研究所",
+    "status": "pending"
+  }
+};
+
 // Export variables for browser script loading compatibility
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { walkthroughData };
+  module.exports = { walkthroughData, palaceWalkthroughData };
 }

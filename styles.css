@@ -293,7 +293,7 @@ body {
   position: relative;
 }
 
-.menu-item a {
+.menu-item > a {
   display: flex;
   align-items: center;
   padding: 14px 25px;
@@ -320,16 +320,16 @@ body {
   transition: left var(--transition-normal);
 }
 
-.menu-item:not(.disabled) a:hover .skew-hover-bg {
+.menu-item:not(.disabled) > a:hover .skew-hover-bg {
   left: -10px;
 }
 
-.menu-item:not(.disabled) a:hover {
+.menu-item:not(.disabled) > a:hover {
   color: var(--p5-white);
   padding-left: 35px;
 }
 
-.menu-item.active a {
+.menu-item.active > a {
   color: var(--p5-white);
   background-color: var(--p5-red);
 }
@@ -1037,4 +1037,332 @@ body {
   z-index: 2;
   letter-spacing: 1px;
   text-shadow: 1px 1px 0 #000;
+}
+
+/* ==========================================================================
+   Palace Walkthrough CSS Additions
+   ========================================================================== */
+
+/* Submenu Styles */
+.submenu-list {
+  list-style: none;
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition-normal) ease-out;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.menu-item.submenu-open .submenu-list {
+  max-height: 400px;
+}
+
+.menu-item .submenu-arrow {
+  margin-left: auto;
+  font-size: 0.75rem;
+  transition: transform var(--transition-normal);
+  color: #888;
+}
+
+.menu-item.submenu-open .submenu-arrow {
+  transform: rotate(180deg);
+  color: var(--p5-red);
+}
+
+.submenu-item {
+  display: block;
+  padding: 10px 15px 10px 45px;
+  color: #aaa;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-left: 3px solid transparent;
+  transition: var(--transition-fast);
+}
+
+.submenu-item:hover, .submenu-item.active {
+  color: var(--p5-white);
+  border-left: 3px solid var(--p5-red);
+  background-color: rgba(211, 15, 22, 0.15);
+  padding-left: 50px;
+}
+
+/* Palace View Section Title Banner (P5 Style) */
+.palace-title-card {
+  position: relative;
+  background: linear-gradient(135deg, var(--p5-red) 0%, #a0060b 100%);
+  border: 3px solid var(--p5-white);
+  box-shadow: 5px 5px 0 var(--p5-black);
+  margin: 15px;
+  padding: 20px 15px;
+  transform: skewY(-2deg);
+  z-index: 10;
+}
+
+.palace-title-card .card-main-title {
+  font-family: var(--font-p5-title);
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--p5-white);
+  text-shadow: 3px 3px 0 #000;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.palace-title-card .card-sub-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--p5-gold);
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 0 #000;
+}
+
+/* Enemy Table Row Interaction */
+.p5-table tbody tr.enemy-row {
+  cursor: pointer;
+}
+
+/* Attributes Column Click Indicator */
+.attr-click-badge {
+  display: inline-block;
+  padding: 2px 6px;
+  background-color: rgba(255,255,255,0.08);
+  border: 1px solid #444;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #ffcc00;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  border-radius: 2px;
+}
+
+.enemy-row:hover .attr-click-badge {
+  background-color: var(--p5-red);
+  color: var(--p5-white);
+  border-color: var(--p5-white);
+  transform: scale(1.05);
+}
+
+/* Attributes Expanded Row */
+.attribute-detail-row {
+  background-color: #0b0b0b !important;
+}
+
+.attribute-detail-row.hidden {
+  display: none;
+}
+
+.attribute-detail-panel {
+  padding: 15px;
+  border-left: 4px solid var(--p5-red);
+  background-color: #0f0f0f;
+  animation: slideDownFade 0.25s ease-out;
+}
+
+@keyframes slideDownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.attribute-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.attribute-grid-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  padding: 6px;
+  border-radius: 3px;
+}
+
+.attribute-grid-item .attr-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #999;
+  margin-bottom: 4px;
+}
+
+.attribute-grid-item .attr-value {
+  font-size: 0.9rem;
+  font-weight: 900;
+  padding: 1px 6px;
+  border-radius: 2px;
+  min-height: 20px;
+}
+
+.attribute-grid-item .attr-value.weak {
+  background-color: #f44336;
+  color: #fff;
+  text-shadow: 1px 1px 0 #000;
+}
+.attribute-grid-item .attr-value.resist {
+  background-color: #757575;
+  color: #fff;
+}
+.attribute-grid-item .attr-value.nullify {
+  background-color: #444;
+  color: #aaa;
+}
+.attribute-grid-item .attr-value.reflect {
+  background-color: #00bcd4;
+  color: #fff;
+  text-shadow: 1px 1px 0 #000;
+}
+.attribute-grid-item .attr-value.absorb {
+  background-color: #4caf50;
+  color: #fff;
+  text-shadow: 1px 1px 0 #000;
+}
+.attribute-grid-item .attr-value.none {
+  color: #444;
+}
+
+/* Status Immunities Block */
+.status-immunities-box {
+  background-color: rgba(211, 15, 22, 0.05);
+  border: 1px solid #3a1113;
+  padding: 10px 12px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: #ddd;
+}
+
+.status-immunities-box strong {
+  color: var(--p5-red);
+  margin-right: 5px;
+}
+
+/* Will Seeds Section */
+.willseeds-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 15px;
+}
+
+.willseed-card {
+  background-color: var(--p5-dark-grey);
+  border: 2px solid #333;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  transition: transform var(--transition-fast);
+}
+
+.willseed-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--p5-red);
+}
+
+.willseed-card-header {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  border-bottom: 2px solid var(--p5-red);
+  background-color: #0c0c0c;
+}
+
+.willseed-card-header .seed-icon {
+  font-size: 1.2rem;
+  margin-right: 10px;
+}
+
+.willseed-card-header .seed-icon.red { color: #f44336; }
+.willseed-card-header .seed-icon.green { color: #4caf50; }
+.willseed-card-header .seed-icon.blue { color: #2196f3; }
+
+.willseed-card-header h3 {
+  font-size: 1.05rem;
+  font-weight: bold;
+  color: var(--p5-white);
+}
+
+.willseed-image-container {
+  width: 100%;
+  position: relative;
+  background-color: #050505;
+  border-bottom: 1px solid #222;
+}
+
+.willseed-image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: opacity 0.3s;
+}
+
+.willseed-card-body {
+  padding: 12px 15px;
+}
+
+.willseed-card-body p {
+  font-size: 0.85rem;
+  color: #ccc;
+  line-height: 1.5;
+}
+
+/* Puzzle Card */
+.puzzle-card {
+  background-color: var(--p5-dark-grey);
+  border: 2px solid #333;
+  border-radius: 6px;
+  margin-top: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.puzzle-image-container {
+  width: 100%;
+  background-color: #050505;
+}
+
+.puzzle-image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Pending/To-be-added View */
+.pending-palace-view {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.pending-palace-view .pending-icon {
+  font-size: 3.5rem;
+  color: #444;
+  margin-bottom: 20px;
+  animation: floatIcon 3s infinite ease-in-out;
+}
+
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.pending-palace-view h2 {
+  font-size: 1.5rem;
+  color: #ffcc00;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-family: var(--font-p5-title);
+  letter-spacing: 2px;
+}
+
+.pending-palace-view p {
+  font-size: 0.9rem;
+  color: #888;
 }
