@@ -43,11 +43,18 @@
           <button id="close-drawer-btn" aria-label="關閉選單" class="close-btn">&times;</button>
         </div>
         <ul class="drawer-menu-list">
-          <li class="menu-item active">
+          <li class="menu-item active" id="menu-walkthrough-item">
             <a href="#" id="menu-main-walkthrough">
               <span class="skew-hover-bg"></span>
               <span class="item-icon">★</span>
               <span class="item-text">主攻略流程</span>
+            </a>
+          </li>
+          <li class="menu-item" id="menu-technical-item">
+            <a href="#" id="menu-technical">
+              <span class="skew-hover-bg"></span>
+              <span class="item-icon">⚡</span>
+              <span class="item-text">TECHNICAL 發生組合</span>
             </a>
           </li>
           <li class="menu-item disabled">
@@ -81,36 +88,161 @@
     <!-- Main Content Area -->
     <main class="app-main-content">
       
-      <!-- Month Tab Navigation -->
-      <section class="tabs-section">
-        <div class="months-tabs-wrapper">
-          <div class="months-tabs" id="month-tabs">
-            <!-- Dynamically populated from JS -->
+      <!-- Walkthrough View Container -->
+      <div id="walkthrough-view">
+        <!-- Month Tab Navigation -->
+        <section class="tabs-section">
+          <div class="months-tabs-wrapper">
+            <div class="months-tabs" id="month-tabs">
+              <!-- Dynamically populated from JS -->
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- Monthly Overview & Notes -->
-      <section class="overview-section">
-        <div class="monthly-targets-card">
-          <div class="card-tag">★ MONTHLY TARGETS</div>
-          <ul id="month-notes-list" class="targets-list">
-            <!-- Dynamically populated -->
-          </ul>
-        </div>
-      </section>
+        <!-- Monthly Overview & Notes -->
+        <section class="overview-section">
+          <div class="monthly-targets-card">
+            <div class="card-tag">★ MONTHLY TARGETS</div>
+            <ul id="month-notes-list" class="targets-list">
+              <!-- Dynamically populated -->
+            </ul>
+          </div>
+        </section>
 
-      <!-- Daily Schedule Timeline -->
-      <section class="schedule-section">
-        <div class="section-title-banner">
-          <span class="banner-skew"></span>
-          <h2>DAILY WALKTHROUGH</h2>
-        </div>
-        <div id="schedule-container" class="cards-timeline">
-          <!-- Dynamically populated daily cards -->
-        </div>
-      </section>
+        <!-- Daily Schedule Timeline -->
+        <section class="schedule-section">
+          <div class="section-title-banner">
+            <span class="banner-skew"></span>
+            <h2>DAILY WALKTHROUGH</h2>
+          </div>
+          <div id="schedule-container" class="cards-timeline">
+            <!-- Dynamically populated daily cards -->
+          </div>
+        </section>
+      </div>
 
+      <!-- Technical View Container -->
+      <div id="technical-view" class="hidden">
+        <section class="schedule-section">
+          <div class="section-title-banner">
+            <span class="banner-skew"></span>
+            <h2>TECHNICAL 種類</h2>
+          </div>
+          
+          <div class="technical-intro-card">
+            <div class="card-tag">★ SYSTEM INFO</div>
+            <p class="intro-text">
+              當敵人處於特定異常狀態時，使用對應的屬性進行攻擊即可觸發 <strong>TECHNICAL</strong> 攻擊，造成額外傷害並有機會使敵人倒地。
+            </p>
+          </div>
+
+          <div class="technical-table-wrapper">
+            <div class="table-subtitle">TECHNICAL 發生組合如下：</div>
+            
+            <table class="p5-table">
+              <thead>
+                <tr>
+                  <th class="skew-th">敵人的異常狀態</th>
+                  <th class="skew-th">可以發生TECHNICAL的攻擊</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="status-badge burn">炎上</span></td>
+                  <td>
+                    <span class="elem-badge wind">疾風</span>
+                    <span class="elem-badge nuke">核熱</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><span class="status-badge freeze">凍結</span></td>
+                  <td>
+                    <span class="elem-badge phys">物理</span>
+                    <span class="elem-badge gun">槍擊</span>
+                    <span class="elem-badge nuke">核熱</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><span class="status-badge shock">感電</span></td>
+                  <td>
+                    <span class="elem-badge phys">物理</span>
+                    <span class="elem-badge gun">槍擊</span>
+                    <span class="elem-badge nuke">核熱</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><span class="status-badge dizzy">眩暈</span>、<span class="status-badge sleep">睡眠</span></td>
+                  <td>
+                    <span class="elem-badge any">任何攻擊</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="status-badge confuse">混亂</span>、<span class="status-badge fear">恐怖</span>、<span class="status-badge rage">激怒</span>、<span class="status-badge despair">絕望</span>、<span class="status-badge brainwash">洗腦</span>、<span class="status-badge forget">忘卻</span>
+                  </td>
+                  <td>
+                    <span class="elem-badge psy">念動</span>
+                  </td>
+                </tr>
+                
+                <!-- Separator row for the book -->
+                <tr class="table-section-divider">
+                  <td colspan="2">
+                    <div class="divider-banner">
+                      <span class="divider-skew"></span>
+                      <span class="divider-text">「解心新書・亂」追加的攻擊</span>
+                    </div>
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td><span class="status-badge confuse">混亂</span></td>
+                  <td>
+                    <span class="elem-badge psy">念動</span>
+                    <span class="elem-badge gun book-added">槍擊</span>
+                    <span class="elem-badge wind book-added">疾風</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><span class="status-badge fear">恐怖</span></td>
+                  <td>
+                    <span class="elem-badge psy">念動</span>
+                    <span class="elem-badge ice book-added">冰結</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><span class="status-badge forget">忘卻</span></td>
+                  <td>
+                    <span class="elem-badge psy">念動</span>
+                    <span class="elem-badge elec book-added">電擊</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><span class="status-badge rage">激怒</span></td>
+                  <td>
+                    <span class="elem-badge psy">念動</span>
+                    <span class="elem-badge fire book-added">火炎</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><span class="status-badge despair">絕望</span></td>
+                  <td>
+                    <span class="elem-badge psy">念動</span>
+                    <span class="elem-badge curse book-added">咒怨</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><span class="status-badge brainwash">洗腦</span></td>
+                  <td>
+                    <span class="elem-badge psy">念動</span>
+                    <span class="elem-badge bless book-added">祝福</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
     </main>
 
     <!-- Floating Quick Jump Button (Visible when page is scrolled) -->

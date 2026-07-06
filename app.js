@@ -20,6 +20,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const mainContent = document.querySelector(".app-main-content");
   
   const menuMainWalkthrough = document.getElementById("menu-main-walkthrough");
+  const walkthroughView = document.getElementById("walkthrough-view");
+  const technicalView = document.getElementById("technical-view");
+  const menuWalkthroughItem = document.getElementById("menu-walkthrough-item");
+  const menuTechnicalItem = document.getElementById("menu-technical-item");
+  const menuTechnical = document.getElementById("menu-technical");
 
   // --- Load Progress from localStorage ---
   function loadProgress() {
@@ -65,11 +70,42 @@ document.addEventListener("DOMContentLoaded", () => {
   closeDrawerBtn.addEventListener("click", closeDrawer);
   drawerBackdrop.addEventListener("click", closeDrawer);
 
+  // --- Page Switcher ---
+  let currentPage = "walkthrough";
+
+  function switchPage(page) {
+    currentPage = page;
+    if (page === "walkthrough") {
+      walkthroughView.classList.remove("hidden");
+      technicalView.classList.add("hidden");
+      
+      menuWalkthroughItem.classList.add("active");
+      menuTechnicalItem.classList.remove("active");
+      
+      updateFloatingButtonVisibility();
+    } else if (page === "technical") {
+      walkthroughView.classList.add("hidden");
+      technicalView.classList.remove("hidden");
+      
+      menuWalkthroughItem.classList.remove("active");
+      menuTechnicalItem.classList.add("active");
+      
+      floatingJumpBtn.classList.remove("visible");
+    }
+  }
+
   // Close drawer on clicking menu items
   menuMainWalkthrough.addEventListener("click", (e) => {
     e.preventDefault();
     closeDrawer();
-    // Already on main page, scroll to top
+    switchPage("walkthrough");
+    mainContent.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  menuTechnical.addEventListener("click", (e) => {
+    e.preventDefault();
+    closeDrawer();
+    switchPage("technical");
     mainContent.scrollTo({ top: 0, behavior: "smooth" });
   });
 
@@ -245,7 +281,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- Floating Button Visibility ---
   function updateFloatingButtonVisibility() {
-    if (!activeProgress) {
+    if (!activeProgress || currentPage !== "walkthrough") {
       floatingJumpBtn.classList.remove("visible");
       return;
     }
@@ -262,8 +298,18 @@ document.addEventListener("DOMContentLoaded", () => {
   mainContent.addEventListener("scroll", updateFloatingButtonVisibility);
   
   // Jump event listeners
-  floatingJumpBtn.addEventListener("click", scrollToCurrentProgress);
-  headerStarBtn.addEventListener("click", scrollToCurrentProgress);
+  floatingJumpBtn.addEventListener("click", () => {
+    if (currentPage !== "walkthrough") {
+      switchPage("walkthrough");
+    }
+    scrollToCurrentProgress();
+  });
+  headerStarBtn.addEventListener("click", () => {
+    if (currentPage !== "walkthrough") {
+      switchPage("walkthrough");
+    }
+    scrollToCurrentProgress();
+  });
 
   // --- App Startup Setup ---
   function initApp() {
