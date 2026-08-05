@@ -4,7 +4,7 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   // --- State Variables ---
-  let currentMonth = "7月";
+  let currentMonth = Object.keys(walkthroughData)[0] || "9月";
   let activeProgress = null;
 
   // --- DOM Elements ---
@@ -575,8 +575,8 @@ document.addEventListener("DOMContentLoaded", () => {
       // Auto-jump on load (give browser a tiny bit of layout time)
       setTimeout(scrollToCurrentProgress, 300);
     } else {
-      // Default to 7月
-      currentMonth = "7月";
+      // Default to first month in walkthroughData
+      currentMonth = Object.keys(walkthroughData)[0] || "9月";
       renderMonthTabs();
       renderMonthContent();
     }
