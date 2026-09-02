@@ -2912,7 +2912,666 @@ const palaceWalkthroughData = {
   },
   "shido": {
     "name": "傲慢的游轮",
-    "status": "pending"
+    "deadlines": [
+      {
+        "label": "开放日期",
+        "date": "11月24日"
+      },
+      {
+        "label": "自由攻略",
+        "date": "11月25日"
+      },
+      {
+        "label": "确认秘宝路线期限",
+        "date": "12月16日"
+      },
+      {
+        "label": "预告信期限",
+        "date": "12月17日"
+      },
+      {
+        "label": "行动日期限",
+        "date": "12月17日"
+      },
+      {
+        "label": "最后期限",
+        "date": "12月18日（众议院选举）"
+      }
+    ],
+    "enemies": {
+      "ordinary": [
+        {
+          "lv": "35",
+          "arcana": "倒悬者",
+          "name": "大帝的护符",
+          "alias": "大帝的护符",
+          "personality": "",
+          "attributes": {
+            "物": "耐",
+            "枪": "耐",
+            "电": "弱"
+          },
+          "hp": "",
+          "sp": "",
+          "remarks": "",
+          "drop_items": "",
+          "negotiation_items": ""
+        },
+        {
+          "lv": "40",
+          "arcana": "死神",
+          "name": "希望钻石",
+          "alias": "希望钻石",
+          "personality": "",
+          "attributes": {
+            "物": "耐",
+            "枪": "耐",
+            "冰": "弱"
+          },
+          "hp": "",
+          "sp": "",
+          "remarks": "",
+          "drop_items": "",
+          "negotiation_items": ""
+        },
+        {
+          "lv": "48",
+          "arcana": "恋爱",
+          "name": "【自恋的花人偶】",
+          "alias": "纳西瑟斯",
+          "personality": "懦弱",
+          "attributes": {
+            "火": "弱",
+            "电": "无",
+            "风": "耐",
+            "祝": "耐"
+          },
+          "hp": "",
+          "sp": "",
+          "remarks": "运之龙涎香",
+          "drop_items": "软木橡树皮",
+          "negotiation_items": "魔石、眩晕小瓶子"
+        },
+        {
+          "lv": "50",
+          "arcana": "女教皇",
+          "name": "【冒冷汗的琵琶女】",
+          "alias": "妙音天女",
+          "personality": "阴沉",
+          "attributes": {
+            "冰": "无",
+            "电": "耐",
+            "核": "弱"
+          },
+          "hp": "",
+          "sp": "",
+          "remarks": "混乱大瓶子",
+          "drop_items": "厚羊皮纸",
+          "negotiation_items": "灵魂糖果、混乱小瓶子"
+        },
+        {
+          "lv": "50",
+          "arcana": "女皇",
+          "name": "【喜欢血祭的战斗少女】",
+          "alias": "荼积尼",
+          "personality": "开朗",
+          "attributes": {
+            "枪": "无",
+            "火": "耐"
+          },
+          "hp": "",
+          "sp": "",
+          "remarks": "宝玉",
+          "drop_items": "马口铁的金属扣",
+          "negotiation_items": "提特拉之锤、罗刹符咒"
+        },
+        {
+          "lv": "52",
+          "arcana": "星",
+          "name": "【暴力鸟神】",
+          "alias": "迦楼罗",
+          "personality": "开朗",
+          "attributes": {
+            "风": "耐",
+            "祝": "反"
+          },
+          "hp": "",
+          "sp": "",
+          "remarks": "甘露汽水",
+          "drop_items": "水银",
+          "negotiation_items": "灵魂糖果、真空？"
+        },
+        {
+          "lv": "52",
+          "arcana": "皇帝",
+          "name": "【发高烧的狮子】",
+          "alias": "巴隆",
+          "personality": "开朗",
+          "attributes": {
+            "枪": "耐",
+            "电": "耐",
+            "风": "弱",
+            "祝": "无",
+            "咒": "弱"
+          },
+          "hp": "",
+          "sp": "",
+          "remarks": "速之龙涎香",
+          "drop_items": "聚光透镜",
+          "negotiation_items": "狮子的老旧防具"
+        },
+        {
+          "lv": "55",
+          "arcana": "战车",
+          "name": "【冥府的看门狗】",
+          "alias": "克鲁贝洛斯",
+          "personality": "性急",
+          "attributes": {
+            "火": "吸",
+            "冰": "弱",
+            "核": "耐"
+          },
+          "hp": "",
+          "sp": "",
+          "remarks": "物理软膏",
+          "drop_items": "铁矿砂",
+          "negotiation_items": "灵魂糖果、业火勾玉"
+        },
+        {
+          "lv": "56",
+          "arcana": "女皇",
+          "name": "【浮名之宴的女王】",
+          "alias": "蒂坦妮亚",
+          "personality": "开朗",
+          "attributes": {
+            "念": "弱",
+            "核": "耐",
+            "祝": "耐",
+            "咒": "耐"
+          },
+          "hp": "",
+          "sp": "",
+          "remarks": "物理软膏",
+          "drop_items": "加工皮革",
+          "negotiation_items": "灵魂糖果、核热炸弹"
+        },
+        {
+          "lv": "56",
+          "arcana": "恋爱",
+          "name": "【映出灭亡的美女】",
+          "alias": "帕尔瓦蒂",
+          "personality": "懦弱",
+          "attributes": {
+            "冰": "反",
+            "念": "耐",
+            "祝": "耐",
+            "咒": "弱"
+          },
+          "hp": "",
+          "sp": "",
+          "remarks": "返魂香",
+          "drop_items": "植物香油",
+          "negotiation_items": "灵魂糖果、洗礼水"
+        },
+        {
+          "lv": "58",
+          "arcana": "恶魔",
+          "name": "【邪教的山羊导师】",
+          "alias": "巴风特",
+          "personality": "懦弱",
+          "attributes": {
+            "火": "耐",
+            "祝": "弱",
+            "咒": "无"
+          },
+          "hp": "",
+          "sp": "",
+          "remarks": "通灵板",
+          "drop_items": "红磷粉",
+          "negotiation_items": "稻草人偶、五寸钉"
+        },
+        {
+          "lv": "61",
+          "arcana": "皇帝",
+          "name": "【冰雪的霸者】",
+          "alias": "霜精之王",
+          "personality": "开朗",
+          "attributes": {
+            "冰": "吸",
+            "祝": "无"
+          },
+          "hp": "",
+          "sp": "",
+          "remarks": "超绝弱体符咒",
+          "drop_items": "聚光透镜",
+          "negotiation_items": "干冰、烈寒勾玉"
+        },
+        {
+          "lv": "63",
+          "arcana": "女皇",
+          "name": "【愤怒发狂的黑女王】",
+          "alias": "迦梨",
+          "personality": "性急",
+          "attributes": {
+            "枪": "反",
+            "火": "无",
+            "念": "反",
+            "咒": "耐"
+          },
+          "hp": "",
+          "sp": "",
+          "remarks": "黑女王的老旧防具",
+          "drop_items": "黑女王的老旧防具",
+          "negotiation_items": "黑女王的老旧防具"
+        },
+        {
+          "lv": "63",
+          "arcana": "魔术师",
+          "name": "【善辩的海洋怪鱼】",
+          "alias": "佛钮斯",
+          "personality": "阴沉",
+          "attributes": {
+            "冰": "吸",
+            "电": "弱",
+            "念": "无"
+          },
+          "hp": "",
+          "sp": "",
+          "remarks": "魔之龙涎香",
+          "drop_items": "红磷粉",
+          "negotiation_items": "魔石、洗脑小瓶子"
+        },
+        {
+          "lv": "64",
+          "arcana": "力量",
+          "name": "【狂躁的猴王子】",
+          "alias": "哈奴曼",
+          "personality": "开朗",
+          "attributes": {
+            "枪": "耐",
+            "冰": "弱",
+            "念": "耐",
+            "祝": "耐"
+          },
+          "hp": "",
+          "sp": "",
+          "remarks": "耐之龙涎香",
+          "drop_items": "软木橡树皮",
+          "negotiation_items": "猴王子的老旧防具"
+        },
+        {
+          "lv": "65",
+          "arcana": "信念",
+          "name": "【怒发冲天的明王】",
+          "alias": "大元帅明王",
+          "personality": "性急",
+          "attributes": {
+            "物": "耐",
+            "枪": "无",
+            "火": "反",
+            "咒": "耐"
+          },
+          "hp": "",
+          "sp": "",
+          "remarks": "瞬间增强符咒",
+          "drop_items": "",
+          "negotiation_items": "金刚符咒、业火勾玉"
+        },
+        {
+          "lv": "66",
+          "arcana": "皇帝",
+          "name": "【出轨梦境之王】",
+          "alias": "奥伯隆",
+          "personality": "性急",
+          "attributes": {
+            "电": "耐",
+            "念": "无",
+            "核": "弱"
+          },
+          "hp": "",
+          "sp": "",
+          "remarks": "魔法软膏",
+          "drop_items": "生丝捆",
+          "negotiation_items": "摩伽罗战锤、紫电勾玉"
+        }
+      ],
+      "strong": [
+        {
+          "lv": "55",
+          "arcana": "战车",
+          "name": "冥府的看门狗",
+          "alias": "克鲁贝洛斯",
+          "personality": "",
+          "attributes": {
+            "火": "吸",
+            "冰": "弱",
+            "核": "耐"
+          },
+          "hp": "860",
+          "sp": "180",
+          "remarks": "祝福、咒怨即死、恐、绝望无效",
+          "drop_items": "",
+          "negotiation_items": ""
+        },
+        {
+          "lv": "56",
+          "arcana": "星星",
+          "name": "政治家・大江",
+          "alias": "八岐大蛇",
+          "personality": "",
+          "attributes": {
+            "冰": "吸",
+            "念": "弱"
+          },
+          "hp": "3000",
+          "sp": "630",
+          "remarks": "祝福、咒怨即死、眩、乱、王、眠、怒、恐、绝望、洗脑无效",
+          "drop_items": "",
+          "negotiation_items": ""
+        },
+        {
+          "lv": "57",
+          "arcana": "隐者",
+          "name": "特异阴影・旧华族",
+          "alias": "佛钮司",
+          "personality": "",
+          "attributes": {
+            "冰": "吸",
+            "电": "弱",
+            "念": "无"
+          },
+          "hp": "3500",
+          "sp": "800",
+          "remarks": "祝福、咒怨即死、眩、乱、王、眠、怒、恐、绝望、洗脑无效",
+          "drop_items": "",
+          "negotiation_items": ""
+        },
+        {
+          "lv": "58",
+          "arcana": "恶魔",
+          "name": "邪宗的山羊导师",
+          "alias": "巴风特",
+          "personality": "",
+          "attributes": {
+            "火": "耐",
+            "祝": "弱",
+            "咒": "无"
+          },
+          "hp": "666",
+          "sp": "680",
+          "remarks": "咒怨、恐怖、绝望、洗脑无效",
+          "drop_items": "",
+          "negotiation_items": ""
+        },
+        {
+          "lv": "58",
+          "arcana": "力量",
+          "name": "特异阴影・TV社长",
+          "alias": "哈奴曼",
+          "personality": "",
+          "attributes": {
+            "火": "吸",
+            "冰": "弱"
+          },
+          "hp": "2600",
+          "sp": "780",
+          "remarks": "全异常无效",
+          "drop_items": "",
+          "negotiation_items": ""
+        },
+        {
+          "lv": "57",
+          "arcana": "太阳",
+          "name": "暴力鸟神",
+          "alias": "迦楼罗",
+          "personality": "",
+          "attributes": {
+            "电": "弱",
+            "风": "无"
+          },
+          "hp": "2400",
+          "sp": "228",
+          "remarks": "祝福、咒怨即死无效/火、冰、电异常容易附着",
+          "drop_items": "",
+          "negotiation_items": ""
+        },
+        {
+          "lv": "59",
+          "arcana": "愚者",
+          "name": "特异阴影・IT社长",
+          "alias": "奥伯隆",
+          "personality": "",
+          "attributes": {
+            "念": "无",
+            "核": "弱"
+          },
+          "hp": "3500",
+          "sp": "560",
+          "remarks": "祝福、咒怨即死、眩、乱、王、眠、怒、恐、绝望、洗脑无效",
+          "drop_items": "",
+          "negotiation_items": ""
+        },
+        {
+          "lv": "58",
+          "arcana": "女皇",
+          "name": "浮名之宴的女王",
+          "alias": "蒂坦妮娅",
+          "personality": "",
+          "attributes": {
+            "念": "弱",
+            "核": "无"
+          },
+          "hp": "900",
+          "sp": "800",
+          "remarks": "祝福、咒怨即死、眩、乱、王、眠、怒、恐、绝望、洗脑无效",
+          "drop_items": "",
+          "negotiation_items": ""
+        },
+        {
+          "lv": "63",
+          "arcana": "女皇",
+          "name": "愤怒发狂的黑女王",
+          "alias": "迦梨",
+          "personality": "",
+          "attributes": {
+            "枪": "反",
+            "火": "无",
+            "念": "反",
+            "咒": "耐"
+          },
+          "hp": "2500",
+          "sp": "500",
+          "remarks": "祝福、咒怨即死、恐、绝望、洗脑无效",
+          "drop_items": "",
+          "negotiation_items": ""
+        },
+        {
+          "lv": "50",
+          "arcana": "女皇",
+          "name": "喜欢血祭的战女",
+          "alias": "荼吉尼",
+          "personality": "",
+          "attributes": {
+            "枪": "无"
+          },
+          "hp": "1500",
+          "sp": "276",
+          "remarks": "祝福、咒怨即死、恐、绝望、洗脑无效",
+          "drop_items": "",
+          "negotiation_items": ""
+        },
+        {
+          "lv": "60",
+          "arcana": "力量",
+          "name": "特异阴影・善后者",
+          "alias": "隐形鬼",
+          "personality": "",
+          "attributes": {},
+          "hp": "5500",
+          "sp": "450",
+          "remarks": "祝福、咒怨即死、眩、乱、王、眠、怒、恐、绝望、洗脑无效",
+          "drop_items": "",
+          "negotiation_items": ""
+        },
+        {
+          "lv": "61",
+          "arcana": "",
+          "name": "使魔枪的猛将",
+          "alias": "库夫林",
+          "personality": "",
+          "attributes": {
+            "枪": "耐",
+            "电": "吸"
+          },
+          "hp": "1800",
+          "sp": "400",
+          "remarks": "祝福、咒怨即死、眩、乱、王、眠、怒、恐、绝望、洗脑无效",
+          "drop_items": "",
+          "negotiation_items": ""
+        },
+        {
+          "lv": "61",
+          "arcana": "",
+          "name": "冥府的看门狗",
+          "alias": "克鲁贝洛斯",
+          "personality": "",
+          "attributes": {
+            "火": "吸",
+            "冰": "弱",
+            "电": "弱"
+          },
+          "hp": "1800",
+          "sp": "400",
+          "remarks": "祝福、咒怨即死、眩、乱、王、眠、怒、恐、绝望、洗脑无效",
+          "drop_items": "",
+          "negotiation_items": ""
+        }
+      ],
+      "boss": [
+        {
+          "lv": "61",
+          "arcana": "",
+          "name": "明智吾郎",
+          "alias": "",
+          "personality": "",
+          "attributes": {},
+          "hp": "2200",
+          "sp": "999",
+          "remarks": "祝福、咒怨即死、眩、乱、王、眠、怒、恐、绝望、洗脑无效",
+          "drop_items": "",
+          "negotiation_items": ""
+        },
+        {
+          "lv": "61",
+          "arcana": "",
+          "name": "明智吾郎（黑面人）",
+          "alias": "",
+          "personality": "",
+          "attributes": {
+            "祝": "耐",
+            "咒": "耐"
+          },
+          "hp": "5000",
+          "sp": "999",
+          "remarks": "祝福、咒怨即死、眩、乱、王、眠、怒、恐、绝望、洗脑无效",
+          "drop_items": "",
+          "negotiation_items": ""
+        },
+        {
+          "lv": "63",
+          "arcana": "",
+          "name": "人柱的王兽",
+          "alias": "",
+          "personality": "",
+          "attributes": {
+            "物": "反",
+            "枪": "反"
+          },
+          "hp": "7000",
+          "sp": "999",
+          "remarks": "祝福、咒怨即死、眩、乱、王、眠、怒、恐、绝望、洗脑无效",
+          "drop_items": "",
+          "negotiation_items": ""
+        },
+        {
+          "lv": "63",
+          "arcana": "",
+          "name": "人柱的王翼",
+          "alias": "",
+          "personality": "",
+          "attributes": {
+            "火": "耐",
+            "冰": "耐",
+            "电": "耐",
+            "风": "耐",
+            "念": "耐",
+            "核": "耐",
+            "祝": "耐",
+            "咒": "耐"
+          },
+          "hp": "7000",
+          "sp": "999",
+          "remarks": "祝福、咒怨即死、眩、乱、王、眠、怒、恐、绝望、洗脑无效",
+          "drop_items": "",
+          "negotiation_items": ""
+        },
+        {
+          "lv": "63",
+          "arcana": "",
+          "name": "人柱的王墓",
+          "alias": "",
+          "personality": "",
+          "attributes": {
+            "枪": "耐"
+          },
+          "hp": "7000",
+          "sp": "999",
+          "remarks": "祝福、咒怨即死、眩、乱、王、眠、怒、恐、绝望、洗脑无效",
+          "drop_items": "",
+          "negotiation_items": ""
+        },
+        {
+          "lv": "63",
+          "arcana": "",
+          "name": "狮童·萨麦尔·正义",
+          "alias": "",
+          "personality": "",
+          "attributes": {},
+          "hp": "4000",
+          "sp": "999",
+          "remarks": "祝福、咒怨即死、眩、乱、王、眠、怒、恐、绝望、洗脑无效",
+          "drop_items": "",
+          "negotiation_items": ""
+        },
+        {
+          "lv": "63",
+          "arcana": "",
+          "name": "真･狮童·萨麦尔·正义",
+          "alias": "",
+          "personality": "",
+          "attributes": {},
+          "hp": "4800",
+          "sp": "999",
+          "remarks": "祝福、咒怨即死、眩、乱、王、眠、怒、恐、绝望、洗脑无效",
+          "drop_items": "",
+          "negotiation_items": ""
+        }
+      ]
+    },
+    "willSeeds": [
+      {
+        "name": "红色欲石",
+        "image": "assets/palace/shido/red_will_seed.jpg"
+      },
+      {
+        "name": "绿色欲石",
+        "image": "assets/palace/shido/green_will_seed.jpg"
+      },
+      {
+        "name": "蓝色欲石",
+        "image": "assets/palace/shido/blue_will_seed.jpg"
+      }
+    ]
   },
   "mementos": {
     "name": "印象空间最深处",
