@@ -284,21 +284,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 5. Render Puzzle
     if (palace.puzzle) {
+      const puzzleList = Array.isArray(palace.puzzle) ? palace.puzzle : [palace.puzzle];
       htmlContent += `
         <section class="schedule-section">
           <div class="section-title-banner">
             <span class="banner-skew"></span>
             <h2>其他 (謎題解法)</h2>
           </div>
-          <div class="puzzle-card">
-            <div class="willseed-card-header">
-              <span class="seed-icon" style="color: var(--p5-gold);">⚙</span>
-              <h3>${palace.puzzle.title}</h3>
+          ${puzzleList.map(p => `
+            <div class="puzzle-card" style="margin-bottom: 20px;">
+              <div class="willseed-card-header">
+                <span class="seed-icon" style="color: var(--p5-gold);">⚙</span>
+                <h3>${p.title}</h3>
+              </div>
+              <div class="puzzle-image-container">
+                <img src="${p.image}" alt="${p.title}圖解" loading="lazy" />
+              </div>
             </div>
-            <div class="puzzle-image-container">
-              <img src="${palace.puzzle.image}" alt="${palace.puzzle.title}圖解" loading="lazy" />
-            </div>
-          </div>
+          `).join("")}
         </section>
       `;
     }
